@@ -16,10 +16,10 @@ namespace featherclient {
 
         HttpClient httpClient = new HttpClient();
         private static string minecraftDir = $"{Environment.GetEnvironmentVariable("APPDATA")}\\.minecraft";
-        private static string LibrariesDir = $"{minecraftDir}\\libraries\\net\\migucracks\\feather-1.8.9";
+        private static string LibrariesDir = $"{minecraftDir}\\libraries\\net\\migucracks\\feather-2.1.4";
         private static string forgeLibrariesDir = $"{minecraftDir}\\libraries\\net\\minecraftforge";
-        private static string featherDir = $"{minecraftDir}\\versions\\1.8.9-feather";
-        private static string versionFolder = $"{minecraftDir}\\versions\\1.8.9";
+        private static string featherDir = $"{minecraftDir}\\versions\\2.1.4-feather";
+        private static string versionFolder = $"{minecraftDir}\\versions\\2.1.4";
 
         public async Task run() {
             Console.Title = "Feather Client Installer - Phloraxx";
@@ -69,14 +69,14 @@ namespace featherclient {
                 File.Delete(minecraftDir + "\\libraries\\libraries.zip");
             }
             if (!Directory.Exists(versionFolder)) {
-                await downloadFile(new Uri(downloads[3]), $"{minecraftDir}\\versions\\1.8.9.zip");
-                ZipFile.ExtractToDirectory($"{minecraftDir}\\versions\\1.8.9.zip", $"{versionFolder}");
-                File.Delete(minecraftDir + "\\versions\\1.8.9.zip");
+                await downloadFile(new Uri(downloads[3]), $"{minecraftDir}\\versions\\2.1.4.zip");
+                ZipFile.ExtractToDirectory($"{minecraftDir}\\versions\\2.1.4.zip", $"{versionFolder}");
+                File.Delete(minecraftDir + "\\versions\\2.1.4.zip");
             }
             Directory.CreateDirectory(featherDir + "\\natives");
 
-            await downloadFile(new Uri(downloads[0]), $"{minecraftDir}\\versions\\1.8.9-feather\\1.8.9-feather.json");
-            await downloadFile(new Uri(downloads[1]), $"{minecraftDir}\\libraries\\net\\migucracks\\feather-1.8.9\\feather-1.8.9-1.9.jar");
+            await downloadFile(new Uri(downloads[0]), $"{minecraftDir}\\versions\\2.1.4-feather\\2.1.4-feather.json");
+            await downloadFile(new Uri(downloads[1]), $"{minecraftDir}\\libraries\\net\\migucracks\\feather-2.1.4\\feather-2.1.4-1.9.jar");
             await downloadFile(new Uri(downloads[2]), $"{featherDir}\\natives.zip");
 
             ZipFile.ExtractToDirectory($"{featherDir}\\natives.zip", $"{featherDir}\\natives");
